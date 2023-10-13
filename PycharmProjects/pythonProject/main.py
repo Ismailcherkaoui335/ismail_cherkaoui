@@ -1,16 +1,23 @@
-# This is a sample Python script.
+import math
+class Weapon:
+    def __int__(self,ammunitions,range):
+        self.ammunitions = ammunitions
+        self.range = range
 
-# Press Maj+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    def fire_at(self,x,y,z):
+        if self.ammunitions == 0:
+            raise Exception("NoAmmunitionError")
+
+        if  (math.sqrt(x**2+y**2) > self.range):
+
+            self.ammunitions -= 1
+            raise Exception("OutOfRangeError")
+
+missile_antisurface = Weapon(50,100)
+missile_anti-air = Weapon(20,40)
+missile_antisurface = Weapon(40,24)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
