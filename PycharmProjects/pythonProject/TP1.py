@@ -5,17 +5,52 @@ class Weapon:
         self.range = range
 
     def fire_at(self,x,y,z):
-        if self.ammunitions == 0:
-            raise Exception("NoAmmunitionError")
+        if z == 0:
+            if math.sqrt(x**2+y**2) > range:
+                ammunitions -=1
+                raise Exception("OutOfRangeError")
+        if z > 0:
+            if math.sqrt(x ** 2 + y ** 2) > range:
 
-        if  (math.sqrt(x**2+y**2) > self.range):
+                ammunitions -=1
+                raise Exception("OutOfRangeError")
 
-            self.ammunitions -= 1
-            raise Exception("OutOfRangeError")
+        if z < 0:
 
-missile_antisurface = Weapon(50,100)
-missile_anti-air = Weapon(20,40)
-missile_antisurface = Weapon(40,24)
+
+            if math.sqrt(x ** 2 + y ** 2) > range:
+
+
+
+                ammunitions -= 1
+                raise Exception("OutOfRangeError")
+
+class Lance_missiles(Weapon):
+    def __init__(self,ammunitions,range,z):
+        super().__init__(ammunitions,range)
+        ammunitions = 50
+        range = 100
+        self.z = z
+
+class Lance_missiles_antiair(Weapon):
+    def __init__(self,ammunitions,range,z):
+        super().__init__(ammunitions,range)
+        ammunitions = 40
+        range = 20
+        self.z = z
+
+class Lance_torpilles(Weapon):
+    def __init__(self,ammunitions,range,z):
+        super().__init__(ammunitions,range)
+        self.z = z
+        ammunitions = 24
+        range = 40
+
+a = Lance_torpilles(50,35,2)
+a.fire_at(3,5,2
+          )
+
+
 
 
 
