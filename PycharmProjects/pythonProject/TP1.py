@@ -44,7 +44,7 @@ for i in range(a.ammunitions+1):
 class Vessel:
 
     def __init__(self,coordinates,max_hits,weapon):
-        self.coordinates =coordinates
+        self.coordinates = coordinates
         self.max_hits = max_hits
         self.weapon = weapon
 
@@ -53,7 +53,8 @@ class Vessel:
             if self.max_hits == 0:
                 raise DestroyedError
 
-
+        except DestroyedError as e:
+            print(e)
 
 class Cruiser(Vessel):
 
@@ -65,9 +66,7 @@ class Cruiser(Vessel):
 class Submarine(Vessel):
 
     def __init__(self, coordinates):
-        super().__init__(coordinates, 2, Lance_torpilles())
-
-
+      super().__init__(coordinates, 2, Lance_torpilles())
 
 class Fregate(Vessel):
 
